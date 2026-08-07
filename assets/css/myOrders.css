@@ -1,0 +1,59 @@
+#orders-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 0.9em;
+}
+
+.order-item span, .order-item a {
+    margin-right: 20px;
+}
+
+.order-id {
+    font-weight: bold;
+}
+
+.order-date {
+    color: #555;
+    font-style: italic;
+}
+
+.order-status {
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status-in-progress {
+    color: orange;
+    background-color: #fff5e6;
+}
+
+.order-total {
+    font-weight: bold;
+    color: #000;
+}
+
+.order-details-button {
+    padding: 5px 10px;
+    background-color: #439093;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.order-details-button:hover {
+    background-color: #367a7d;
+}

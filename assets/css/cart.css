@@ -1,0 +1,125 @@
+#cart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.top-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#empty-cart-button {
+    background-color: #439093;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 0;
+    gap: 15px;
+    color: black;
+}
+
+.product-image img {
+    width: 250px;
+    height: auto;
+}
+
+.product-features {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-height: 100px;
+}
+
+.product-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.product-text {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.product-quantity {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-quantity input {
+    width: 50px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.product-total {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+#cart-summary {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#cart-total {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#checkout-button {
+    background-color: #439093;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.delete-button {
+    background-color: #439093;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-button:hover, #empty-cart-button:hover {
+    transform: scale(1.01);
+}

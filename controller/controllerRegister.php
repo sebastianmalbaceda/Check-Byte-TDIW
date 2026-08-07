@@ -1,0 +1,60 @@
+<?php
+
+$errors = [];
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    require_once __DIR__ . "/../model/connectDB.php";
+    require_once __DIR__ . "/../model/m_register.php";
+    
+    $name = $_POST['name']; 
+    $email = $_POST['email']; 
+    $password = $_POST['password']; 
+    $direction = $_POST['address'];
+    $poblation = $_POST['city'];
+    $postalCode = $_POST['postalCode']; 
+    
+    if (empty($name)) {
+        $errors[] = "El campo 'Nombre' es obligatorio.";
+    }
+
+    if (empty($email)) {
+        $errors[] = "El campo 'Correo electrónico' no puede estar vacío.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "El correo electrónico no tiene un formato válido.";
+    }
+
+    if (empty($password)) {
+        $errors[] = "El campo 'Contraseña' es obligatorio.";
+    }
+
+    if (empty($direction)) {
+        $errors[] = "El campo 'Dirección' es obligatorio.";
+    }
+
+    if (empty($poblation)) {
+        $errors[] = "El campo 'Población' es obligatorio.";
+    }
+
+    if (empty($postalCode)) {
+        $errors[] = "El campo 'Código postal' no puede estar vacío.";
+    } elseif (!preg_match('/^\d{5}$/', $postalCode)) {
+        $errors[] = "El código postal debe ser un número.";
+    } elseif (strlen($postalCode) !== 5) {
+        $errors[] = "El código postal debe tener exactamente 5 dígitos.";
+    }
+    
+    if (empty($errors)) {
+        $connection = connectDB();
+        $result = registerUser($name, $email, $password, $direction, $poblation, $postalCode, $connection);
+        
+        if ($result) {
+            header("Location: index.php");
+            exit();
+        } else {
+            $errors[] = "Hubo un problema al registrar al usuario. Inténtalo de nuevo.";
+        }
+    }
+}
+require __DIR__ . "/../view/printRegister.php";
+
+?>
