@@ -1,0 +1,23 @@
+---
+name: "💡 Solicitud de mejora"
+description: "Propón una idea para este proyecto"
+title: "[Mejora] "
+labels: ["enhancement"]
+assignees: []
+---
+
+## ¿Tu propuesta está relacionada con un problema? Descríbelo.
+
+Me frustra que cuando...
+
+## Describe la solución que te gustaría
+
+Una descripción clara y concisa de lo que quieres que ocurra.
+
+## Describe alternativas que hayas considerado
+
+Una descripción clara de cualquier solución o característica alternativa que hayas considerado.
+
+## Contexto adicional
+
+Añade aquí cualquier otro contexto o captura de pantalla sobre la solicitud.

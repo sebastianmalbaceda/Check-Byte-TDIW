@@ -1,0 +1,32 @@
+name: PHP Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  php-lint:
+    name: Sintaxis PHP
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pgsql
+
+      - name: Verificar sintaxis de los archivos PHP
+        run: |
+          shopt -s globstar
+          if ls **/*.php 1>/dev/null 2>&1; then
+            for file in $(find . -name "*.php" -not -path "./vendor/*" -not -path "./.git/*"); do
+              php -l "$file" || exit 1
+            done
+          fi
+          echo "✅ Sintaxis PHP verificada"

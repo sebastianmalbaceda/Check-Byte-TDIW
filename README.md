@@ -4,112 +4,131 @@
 
 # Check Byte
 
-**E-commerce web application** built as a university project (TDIW — *Tecnologies de Desenvolupament per a Internet i Web*, Autonomous University of Barcelona).
+**Aplicación web de comercio electrónico** desarrollada como proyecto final de la asignatura **TDIW** (*Tecnologies de Desenvolupament per a Internet i Web*) de la **Universitat Autònoma de Barcelona (UAB)**.
 
-A complete online store: catalog, shopping cart, user accounts and order management.
+Una tienda online completa: catálogo, carrito de la compra, cuentas de usuario y gestión de pedidos.
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
 ![jQuery](https://img.shields.io/badge/jQuery-3.6.0-0769AD?style=flat&logo=jquery&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-green)
 
 </div>
 
-## 📖 About
+---
 
-**Check Byte** is a functional e-commerce platform developed as the final project of the **TDIW (Software Development Technologies for Internet and the Web)** course at the **Universitat Autònoma de Barcelona (UAB)**.
+## 📖 Sobre el proyecto
 
-The project implements a complete online shopping experience with session management, a product catalog, an interactive shopping cart and a full order flow — from browsing to order confirmation — all built with native PHP and PostgreSQL.
+**Check Byte** es una plataforma de e-commerce funcional desarrollada como proyecto final de la asignatura **TDIW (Tecnologías de Desarrollo para Internet y Web)** de la **Universitat Autònoma de Barcelona**.
 
-## ✨ Features
+El proyecto implementa una experiencia completa de compra online con gestión de sesiones, un catálogo de productos, un carrito de la compra interactivo y un flujo de pedidos íntegro — desde la navegación hasta la confirmación del pedido — todo ello con PHP y PostgreSQL nativos.
 
-- 🔐 **User authentication** — register, login, logout and profile management (name, address, e-mail, password and profile picture)
-- 🏠 **Landing page** — welcome screen with product categories
-- 🛍️ **Product catalog** — filter products by category
-- 🧾 **Product detail** — description, price and "add to cart" action
-- 🛒 **Shopping cart** — add, modify quantity and remove products, empty cart, stored in session
-- 🪟 **Mini cart** — live cart summary accessible from the header
-- 📦 **Checkout** — order creation with total price and product count
-- 📋 **My orders** — list of the user's orders with the details of each order
-- 👤 **My account** — view and update personal information
+> [!NOTE]
+> Este es un proyecto **académico** creado con fines educativos y de referencia. Forma parte de una práctica evaluable de la asignatura TDIW.
 
-## 🛠️ Tech Stack
+## ✨ Funcionalidades
 
-| Layer      | Technology                                   |
-| ---------- | -------------------------------------------- |
-| Frontend   | HTML5, CSS3, vanilla JavaScript, jQuery 3.6  |
-| Backend    | PHP (7+/8) with the `pgsql` extension        |
-| Database   | PostgreSQL                                   |
-| Web server | Apache                                       |
+- 🔐 **Autenticación de usuarios** — registro, inicio de sesión, cierre de sesión y gestión del perfil (nombre, dirección, e-mail, contraseña y foto de perfil)
+- 🏠 **Página de inicio** — pantalla de bienvenida con las categorías de productos
+- 🛍️ **Catálogo de productos** — filtrar productos por categoría
+- 🧾 **Detalle de producto** — descripción, precio y acción de "añadir al carrito"
+- 🛒 **Carrito de la compra** — añadir, modificar cantidad y eliminar productos, vaciar carrito, almacenado en sesión
+- 🪟 **Mini carrito** — resumen del carrito visible desde la cabecera
+- 📦 **Finalizar compra** — creación del pedido con precio total y número de productos
+- 📋 **Mis pedidos** — listado de los pedidos del usuario y el detalle de cada uno
+- 👤 **Mi cuenta** — consultar y actualizar la información personal
 
-## 📁 Project Structure
+## 🛠️ Stack tecnológico
+
+| Capa        | Tecnología                                     |
+| ----------- | ---------------------------------------------- |
+| Frontend    | HTML5, CSS3, JavaScript vanilla, jQuery 3.6.0   |
+| Backend     | PHP (7+/8) con la extensión `pgsql`             |
+| Base de datos| PostgreSQL                                     |
+| Servidor    | Apache                                         |
+
+## 📁 Estructura del proyecto
 
 ```
 Check-Byte/
-├── index.php                 # Front controller (routing via ?action=)
-├── resource_*.php            # Page resources (home, catalog, login, account, ...)
-├── controller/               # Controllers (business logic)
-├── model/                    # Data access layer (PostgreSQL queries)
-├── view/                     # View templates (print*)
+├── index.php                 # Controlador frontal (enrutado mediante ?action=)
+├── resource_*.php            # Recursos de página (inicio, catálogo, login, ...)
+├── controller/               # Controladores (lógica de negocio)
+├── model/                    # Capa de acceso a datos (consultas PostgreSQL)
+├── view/                     # Plantillas de vista (print*)
 ├── assets/
-│   ├── css/                  # Stylesheets
-│   ├── js/                   # Client-side scripts (AJAX, cart, user actions)
-│   └── imgs/                 # Images and logo assets
-└── info.html                 # Deployment/access documentation (UAB)
+│   ├── css/                  # Hojas de estilo
+│   ├── js/                   # Scripts del lado del cliente (AJAX, carrito, ...)
+│   └── imgs/                 # Imágenes y recursos del logo
+├── info.html                 # Documentación de despliegue (UAB)
+└── autoavaluacio.pdf         # Autoevaluación del proyecto
 ```
 
-The application follows a **Model-View-Controller** architecture. `index.php` acts as a front controller that routes requests to the proper controller based on the `action` parameter.
+La aplicación sigue una arquitectura **Modelo-Vista-Controlador (MVC)**. `index.php` actúa como controlador frontal que enruta las peticiones al controlador correspondiente mediante el parámetro `action`.
 
-## 🗄️ Database Schema
+## 🗄️ Esquema de base de datos
 
-Relational database running on PostgreSQL:
+Base de datos relacional sobre PostgreSQL:
 
-| Table         | Notable columns                                               |
-| ------------- | ------------------------------------------------------------- |
-| `user`        | `id_user`, `name`, `email`, `password`, `address`, `city`, `postal_code`, `profile_picture` |
-| `category`    | `id_category`, `name`, `image`                                |
-| `product`     | `id_product`, `id_category`, `name`, `price`, `description`, `image` |
-| `order`       | `id_order`, `id_user`, `total_price`, `total_products`, `order_datetime` |
-| `order_lines` | `id_order`, `id_product`, `product_name`, `product_price`, `product_quantity` |
+| Tabla        | Columnas destacadas                                                   |
+| ------------ | --------------------------------------------------------------------- |
+| `user`       | `id_user`, `name`, `email`, `password`, `address`, `city`, `postal_code`, `profile_picture` |
+| `category`   | `id_category`, `name`, `image`                                      |
+| `product`    | `id_product`, `id_category`, `name`, `price`, `description`, `image` |
+| `order`      | `id_order`, `id_user`, `total_price`, `total_products`, `order_datetime` |
+| `order_lines`| `id_order`, `id_product`, `product_name`, `product_price`, `product_quantity` |
 
-The database connection is configured in `model/connectDB.php`.
+La conexión a la base de datos está configurada en `model/connectDB.php`.
 
-## 🚀 Getting Started
+## 🚀 Primeros pasos
 
-### Prerequisites
+### Requisitos previos
 
-- Web server with PHP and the **pgsql** extension (e.g. Apache + XAMPP/WAMP)
-- PostgreSQL server
-- jQuery served from the web root (`assets/js`) and loaded via CDN
+- Servidor web con PHP y la extensión **pgsql** (p. ej. Apache + XAMPP/WAMP)
+- Servidor PostgreSQL
+- jQuery cargado mediante CDN
 
-### Installation
+### Instalación
 
-1. Clone the repository:
+1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/<your-user>/Check-Byte-TDIW-Practica.git
+   git clone https://github.com/sebastianmalbaceda/Check-Byte-TDIW-Practica.git
    ```
 
-2. Configure the database connection in `model/connectDB.php` with your PostgreSQL credentials.
+2. Configura la conexión a la base de datos en `model/connectDB.php` con tus credenciales PostgreSQL.
 
-3. Create the database schema (see [Database Schema](#-database-schema)) and load the product/category seed data.
+3. Crea el esquema de la base de datos (ver [Esquema de la base de datos](#-esquema-de-la-base-de-datos)) y carga los datos de ejemplo de productos/categorías.
 
-4. Serve the project root from your web server document root and open it in the browser.
+4. Sirve la raíz del proyecto desde el document root de tu servidor web y abre el navegador.
 
-> ⚠️ Note: this project was developed and deployed on the university's teaching server (UAB `deic-docencia`). Paths such as `/home/TDIW/...` (see `index.php`) and the connection settings reflect that environment and may need adjusting for local deployment.
+> ⚠️ **Nota:** este proyecto fue desarrollado y desplegado en el servidor docente de la universidad (UAB `deic-docencia`). Rutas como `/home/TDIW/...` (ver `index.php`) y los ajustes de conexión reflejan ese entorno y puede que necesiten adaptarse para un despliegue local.
 
-## 📚 Academic Context
+## 👥 Autores
 
-- **Course:** TDIW — *Tecnologies de Desenvolupament per a Internet i Web* (Internet and Web Development Technologies)
-- **University:** Universitat Autònoma de Barcelona (UAB)
-- **Language of the interface:** Spanish
-- **Status:** Completed and graded university project
+Proyecto desarrollado por el equipo de **Check Byte**:
 
-## 📄 License
+| Autor                | Rol          |
+| -------------------- | ------------ |
+| **Gabriel Rios**     | Desarrollador |
+| **Sebastián Malbaceda** | Desarrollador |
+| **Zakaria Boudich**  | Desarrollador |
 
-This project was created for academic purposes. All rights reserved — review before reusing outside the university context.
+## 📚 Contexto académico
+
+- **Asignatura:** TDIW — *Tecnologías de Desarrollo para Internet y Web*
+- **Universidad:** Universitat Autònoma de Barcelona (UAB)
+- **Idioma de la interfaz:** Español
+- **Estado:** Proyecto finalizado y calificado
+
+## 📄 Licencia
+
+Distribuido bajo la licencia **MIT**. Consulta [LICENSE](LICENSE) para más información.
 
 ---
 
-<div align="center">Developed by <b>Sebastián Malbaceda Leyva</b> · Check Byte 🛒</div>
+<div align="center">
+  Desarrollado por <b>Gabriel Rios</b>, <b>Sebastián Malbaceda</b> y <b>Zakaria Boudich</b> · Check Byte 🛒
+</div>
