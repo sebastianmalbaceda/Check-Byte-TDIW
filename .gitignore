@@ -1,0 +1,21 @@
+# Operating System files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Uploaded / generated files (server runtime)
+uploadedFiles/
+*.tmp
+
+# PHP
+_error_
+*.bak
